@@ -3,7 +3,7 @@ package flavio.projeto.restwithspringbootandjava.model;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Person implements Serializable {
+public class Person {
     public static final long serialVersionUID = 1L;
     private Long id;
     private String firstName;

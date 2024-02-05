@@ -1,21 +1,31 @@
 package flavio.projeto.restwithspringbootandjava.model;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
+@Table(name = "person")
 public class Person {
     public static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "first_name", nullable = false, length = 80)
     private String firstName;
+    @Column(name = "last_name", nullable = false, length = 80)
     private String lastName;
-    private String anddress;
+    @Column(nullable = false, length = 100)
+    private String address;
+    @Column(nullable = false, length = 6)
     private String gender;
 
-    public Person(Long id, String firstName, String lastName, String anddress, String gender) {
+    public Person(Long id, String firstName, String lastName, String address, String gender) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.anddress = anddress;
+        this.address = address;
         this.gender = gender;
     }
 
@@ -46,12 +56,12 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public String getAnddress() {
-        return anddress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAnddress(String anddress) {
-        this.anddress = anddress;
+    public void setAddress (String address) {
+        this.address = address;
     }
 
     public String getGender() {
@@ -67,11 +77,11 @@ public class Person {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return Objects.equals(id, person.id) && Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects.equals(anddress, person.anddress) && Objects.equals(gender, person.gender);
+        return Objects.equals(id, person.id) && Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects.equals(address, person.address) && Objects.equals(gender, person.gender);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, anddress, gender);
+        return Objects.hash(id, firstName, lastName, address, gender);
     }
 }

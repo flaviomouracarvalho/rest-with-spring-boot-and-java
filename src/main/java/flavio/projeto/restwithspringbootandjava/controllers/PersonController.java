@@ -1,6 +1,5 @@
 package flavio.projeto.restwithspringbootandjava.controllers;
 
-import flavio.projeto.restwithspringbootandjava.exceptions.UnsupportedMathOperationException;
 import flavio.projeto.restwithspringbootandjava.model.Person;
 import flavio.projeto.restwithspringbootandjava.servicos.PersonServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +25,7 @@ public class PersonController {
 
     //@RequestMapping(value = "/{id}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @GetMapping("/{id}")
-    public Person findById(@PathVariable(value = "id") String id) throws Exception{
+    public Person findById(@PathVariable(value = "id") Long id) throws Exception{
         return personServices.findByid(id);
     }
 
@@ -46,7 +45,7 @@ public class PersonController {
     }
 
     @RequestMapping(value = "/{id}", method=RequestMethod.DELETE)
-    public void delete(@PathVariable(value = "id") String id) throws Exception {
+    public void delete(@PathVariable(value = "id") Long id) throws Exception {
         personServices.delete(id);
     }
 }

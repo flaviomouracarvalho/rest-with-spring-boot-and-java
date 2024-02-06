@@ -13,14 +13,6 @@ public class PersonVO {
     private String address;
     private String gender;
 
-    public PersonVO(Long id, String firstName, String lastName, String address, String gender) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.gender = gender;
-    }
-
     public PersonVO() {
     }
 

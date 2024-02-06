@@ -21,14 +21,6 @@ public class Person {
     @Column(nullable = false, length = 6)
     private String gender;
 
-    public Person(Long id, String firstName, String lastName, String address, String gender) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.gender = gender;
-    }
-
     public Person() {
     }
 

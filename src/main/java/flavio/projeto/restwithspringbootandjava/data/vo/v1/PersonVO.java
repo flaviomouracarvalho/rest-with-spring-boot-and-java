@@ -8,17 +8,17 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-@JsonPropertyOrder({"id", "address", "first_Name", "last_Name", "gender"})
+//@JsonPropertyOrder({"id", "address", "first_Name", "last_Name", "gender"})
 public class PersonVO implements Serializable {
     public static final long serialVersionUID = 1L;
 
     private Long id;
-    @JsonProperty("first_name")
+ //   @JsonProperty("first_name")
     private String firstName;
-    @JsonProperty("last_name")
+//    @JsonProperty("last_name")
     private String lastName;
     private String address;
-    @JsonIgnore
+//    @JsonIgnore
     private String gender;
 
     public PersonVO() {

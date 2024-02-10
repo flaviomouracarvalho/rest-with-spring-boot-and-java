@@ -8,11 +8,22 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer { // WebMvcConfigurer, que permite a configuração do comportamento do MVC (Model-View-Controller) no contexto da aplicação Spring.
-    @Override
+
+    /*@Override
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
         configurer.favorParameter(true) //Aceita parametros
                 .parameterName("mediaType") // Nome do parametro = mediaType
                 .ignoreAcceptHeader(true)  // Ignora parâmetros no header
+                .useRegisteredExtensionsOnly(false)
+                .defaultContentType(MediaType.APPLICATION_JSON)
+                .mediaType("json", MediaType.APPLICATION_JSON)
+                .mediaType("xml", MediaType.APPLICATION_XML);
+    }
+    */
+    @Override
+    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
+        configurer.favorParameter(false) //Aceita parametros
+                .ignoreAcceptHeader(false)  // Ignora parâmetros no header
                 .useRegisteredExtensionsOnly(false)
                 .defaultContentType(MediaType.APPLICATION_JSON)
                 .mediaType("json", MediaType.APPLICATION_JSON)

@@ -26,7 +26,7 @@ public class PersonController {
     @GetMapping(value = "/{id}",
             produces = { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YAML })
     public PersonVO findById(@PathVariable(value = "id") Long id) throws Exception{
-        return personServices.findByid(id);
+        return personServices.findById(id);
     }
 
     @GetMapping(

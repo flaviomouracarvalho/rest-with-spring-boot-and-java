@@ -19,23 +19,11 @@ public class ExceptionResponse implements Serializable {
         return timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getMenssage() {
+    public String getMessage() {
         return menssage;
-    }
-
-    public void setMenssage(String menssage) {
-        this.menssage = menssage;
     }
 
     public String getDetails() {
         return details;
-    }
-
-    public void setDetails(String details) {
-        this.details = details;
     }
 }

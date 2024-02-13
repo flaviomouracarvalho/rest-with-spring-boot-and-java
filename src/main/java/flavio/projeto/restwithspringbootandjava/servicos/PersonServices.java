@@ -2,6 +2,7 @@ package flavio.projeto.restwithspringbootandjava.servicos;
 
 import flavio.projeto.restwithspringbootandjava.controllers.PersonController;
 import flavio.projeto.restwithspringbootandjava.data.vo.v1.PersonVO;
+import flavio.projeto.restwithspringbootandjava.exceptions.RequiredObjectIsNullException;
 import flavio.projeto.restwithspringbootandjava.exceptions.ResourceNotFoundException;
 import flavio.projeto.restwithspringbootandjava.mapper.DozerMapper;
 import flavio.projeto.restwithspringbootandjava.model.Person;
@@ -48,6 +49,9 @@ public class PersonServices {
     }
 
     public PersonVO create(PersonVO person) throws Exception {
+
+        if (person == null) throw new RequiredObjectIsNullException();
+
         logger.info("Create one person!");
         var entity = DozerMapper.parseObject(person, Person.class);
         var vo = DozerMapper.parseObject(repository.save(entity), PersonVO.class);
@@ -56,6 +60,9 @@ public class PersonServices {
     }
 
     public PersonVO update(PersonVO person) throws Exception {
+
+        if (person == null) throw new RequiredObjectIsNullException();
+
         logger.info("Create one person!");
         Person entity = repository.findById(person.getKey())
                 .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));;
